@@ -31,7 +31,7 @@ Once installed, the plugin adds a ``/token`` endpoint group to dserver:
 
 Generate a token::
 
-    curl -X POST http://localhost:5000/token/token \
+    curl -X POST http://localhost:5000/auth/token \
         -H "Content-Type: application/json" \
         -d '{"username": "admin", "password": "anything"}'
 

@@ -40,7 +40,7 @@ class TokenResponseSchema(Schema):
 token_bp = Blueprint(
     "token",
     __name__,
-    url_prefix="/token",
+    url_prefix="/auth",
     description="Development-only JWT token generator endpoints"
 )
 
