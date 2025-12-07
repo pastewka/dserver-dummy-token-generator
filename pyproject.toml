@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=42", "setuptools_scm[toml]>=6.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dserver-dummy-token-generator"
+version = "0.1.0"
+description = "Development-only JWT token generator plugin for dserver"
+readme = "README.rst"
+license = {text = "MIT"}
+authors = [
+    {name = "Lars Pastewka", email = "lars.pastewka@imtek.uni-freiburg.de"},
+]
+dependencies = [
+    "dservercore>=0.18.0",
+    "flask-smorest",
+    "PyJWT>=2.0.0",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov",
+]
+
+[project.urls]
+Repository = "https://github.com/livMatS/dserver-dummy-token-generator"
+
+[tool.setuptools]
+packages = ["dserver_dummy_token_generator"]
+
+[project.entry-points."dservercore.extension"]
+"DummyTokenGeneratorExtension" = "dserver_dummy_token_generator:DummyTokenGeneratorExtension"
