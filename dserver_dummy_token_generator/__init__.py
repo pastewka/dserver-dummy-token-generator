@@ -36,11 +36,6 @@ class TokenResponseSchema(Schema):
     token = fields.String(required=True, metadata={"description": "JWT token"})
 
 
-class HealthResponseSchema(Schema):
-    """Schema for health check response."""
-    status = fields.String(required=True, metadata={"description": "Service status"})
-
-
 # Create the Flask-smorest blueprint
 token_bp = Blueprint(
     "token",
@@ -92,13 +87,6 @@ def get_token(request_data):
     logger.info(f"Generated token for user: {username} (expires in {expiry_hours}h)")
 
     return {"token": token}
-
-
-@token_bp.route("/health", methods=["GET"])
-@token_bp.response(200, HealthResponseSchema)
-def health():
-    """Health check endpoint for the token generator."""
-    return {"status": "ok"}
 
 
 class DummyTokenGeneratorExtension(ExtensionABC):

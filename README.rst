@@ -39,14 +39,6 @@ Response::
 
     {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9..."}
 
-Health check::
-
-    curl http://localhost:5000/token/health
-
-Response::
-
-    {"status": "ok"}
-
 Security Warning
 ----------------
 
